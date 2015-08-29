@@ -244,16 +244,19 @@ INSERT BOOKS
       
       
     <div class="form-group">
-      <div class="col-lg-5 col-lg-offset-2" align="right" >
+      <div class="col-lg-3 col-lg-offset-2" align="right" >
         
         
       </div>
         <div class="col-lg-2  " align="right" style="padding-right:0cm" >
         <button type="reset" class="btn btn-default btn-block">Cancel</button>
       </div>
+         <div class="col-lg-2  " align="right" style="padding-right:0cm" >
+        <button type="button" class="btn btn-success btn-block" onclick="rset()">Done</button>
+      </div>
         <div class="col-lg-2  " align="right" >
             <div id="booksave" >
-        <button type="submit"    class="btn btn-success btn-block " style="padding-right:0cm">Save</button>
+        <button type="submit"    class="btn btn-primary btn-block " style="padding-right:0cm">Save</button>
                 </div>
              <div id="bookupdate" hidden="true">
              <button type="button"  onclick="updateBook()" class="btn btn-success btn-block " style="padding-right:0cm" >Update</button>
@@ -263,7 +266,7 @@ INSERT BOOKS
              <button type="button"  onclick="editBook()" class="btn btn-primary btn-block " style="padding-right:0cm" >Edit</button>
                  </div>
       </div>
-         
+           
         <div class="col-lg-1 col-lg-offset-2" align="right" >
            
       </div>
@@ -271,7 +274,18 @@ INSERT BOOKS
       
       
       
-      
+      <script>
+          
+          
+          function rset(){
+          
+          
+          location.href="searchBooks";
+          
+          }
+          
+          
+          </script>
       
      
       
