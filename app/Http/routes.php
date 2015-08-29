@@ -288,7 +288,13 @@ Route::get('/single-book', function(){
 
 
 
+Route::get('upload',function(){
 
+echo json_encode(array('status' => 'ok'));
+
+
+
+});
 
 
 //----------------------- End ---------------------------//

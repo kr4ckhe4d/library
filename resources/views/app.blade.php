@@ -27,7 +27,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
-
+<link rel="stylesheet" href="/css/simple-demo.css" rel="stylesheet" />
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
 	<!-- Fonts ogleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -47,7 +47,10 @@
         <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
     
          
-    
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript" src="/src/dmuploader.min.js"></script>
     
     
     
@@ -64,7 +67,7 @@
 	
 
 	<!-- Scripts -->
-	<body onload="reset()">
+	<body>
 
     <div id="wrapper">
 
@@ -160,7 +163,6 @@
 	
     
  
-    <script src="{{ URL::asset('js/jquery-2.1.1.js') }}"></script>
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ URL::asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
