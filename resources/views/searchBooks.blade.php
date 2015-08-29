@@ -1,10 +1,75 @@
 @extends('app')
 
+
+
+
+
+
+
+
+@section('heading')
+
+SEARCH BOOKS
+
+
+@endsection
+@section('breadcrumb')
+
+
+<li><a href="#">Books</a>
+                        </li>
+                        <li class="active">
+                            <strong>SearchBooks</strong>
+                        </li>
+
+
+@endsection
+
+
+
+
+
+@section('sidebar')
+
+
+
+      <li class="active">
+                    <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Books</span> </a>
+                    <ul class="nav nav-second-level">
+                        <li class="active" ><a href="searchBooks">Search Books</a></li>
+                        <li ><a href="insertBooks">Insert Books</a></li>
+ 
+                    </ul>
+                </li>
+
+
+
+
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @section('content')
-<div class="container">
-   
+<div class="container" >
+   <br>
 	<div class="row">
-        <legend><h2>   Search Books  </h2></legend>
+    
 		<form class="form-horizontal">
       
  
@@ -103,7 +168,7 @@
   
  var data = 'search='+search+'&select='+select;
       $.ajax({
-    type: "post",
+    type: "get",
     url: '/library/public/searchBooks1',
     data: data,
         

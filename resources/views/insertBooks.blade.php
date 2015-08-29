@@ -1,8 +1,56 @@
 @extends('app')
 
+
+
+
+
+@section('heading')
+
+INSERT BOOKS
+
+
+@endsection
+@section('breadcrumb')
+
+
+<li><a href="#">Books</a>
+                        </li>
+                        <li class="active">
+                            <strong>InsertBooks</strong>
+                        </li>
+
+
+@endsection
+
+
+
+
+
+@section('sidebar')
+
+
+
+      <li class="active">
+                    <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Books</span> </a>
+                    <ul class="nav nav-second-level">
+                        <li  ><a href="searchBooks">Search Books</a></li>
+                        <li class="active"><a href="insertBooks">Insert Books</a></li>
+ 
+                    </ul>
+                </li>
+
+
+
+
+
+@endsection
+
+
+
+
 @section('content')
 <div class="container">
-	<center><h2> Insert Book</h2> </center> 
+ 
     <div id="disableform"> 
     <div class=" form form-horizontal">
   <fieldset>

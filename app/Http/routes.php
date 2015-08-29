@@ -236,24 +236,31 @@ return view('searchBooks');
 
 });
 
-Route::post('searchBooks1', function(){
+Route::get('searchBooks1', function(){
   
     $search = Input::get('search');
      $select = Input::get('select');
     
-    $bookname = DB::table('book_names AS a')
-        ->leftjoin('books AS b', function($join)
-            {
-            $join->on( 'a.id', '=', 'b.book_name_id')
-               ->where('b.status', '=', '0');
-                
-            })
-        ->select(DB::raw('count(b.id) as available, a.*'))
-        ->where($select, 'LIKE', $search.'%')
-        ->groupBy('a.id')
-        ->orderBy($select)
-        ->get();
-		 
+  // $bookname = DB::table('book_names AS a')
+   //    ->leftJoin('books AS b', function($join)
+   //        {
+//$join->on( 'a.id', '=', 'b.book_name_id')
+   //           ->where('b.status', '=', '0');
+//
+   //        })
+//->select(DB::raw('count(b.id) as available, a.*'))
+   //   ->where($select, 'LIKE', $search.'%')
+   //    ->groupBy('a.id')
+//->orderBy($select)
+   //    ->get();
+	//	 
+ 
+       $bookname=  DB::table('book_names')
+             ->leftJoin('books', 'book_names.id','=','books.book_name_id')
+         
+            
+            ->groupBy('book_names.id')
+            ->get();
     
    
        

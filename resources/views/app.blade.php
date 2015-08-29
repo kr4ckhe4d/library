@@ -30,8 +30,7 @@
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
-	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<!-- Fonts ogleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,50 +38,155 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+    
+    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
+    
+         
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </head>
-<body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle Navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Laravel</a>
-			</div>
-
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right">
-					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
-					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-							</ul>
-						</li>
-					@endif
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	@yield('content')
+ 
+ 
+	
 
 	<!-- Scripts -->
-	
+	<body onload="reset()">
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+          
+                
+                @yield('sidebar')
+                
+                
+              <!--  <li class="active">
+                    <a href="insertBooks"><i class="fa fa-book"></i> <span class="nav-label">Books</span>  </a>
+                </li> -->
+             
+
+          
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+      
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to Sabaragamuwa Library.</span>
+                </li>
+                 
+             
+
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>@yield('heading')</h2>
+                    <ol class="breadcrumb">
+                       <!-- <li>
+                            <a href="index.html">This is</a>
+                        </li>
+                        <li class="active">
+                            <strong>Breadcrumb</strong>
+                        </li> -->
+                        @yield('breadcrumb')
+                        
+                        
+                        
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                   <!-- <div class="title-action">
+                        <a href="" class="btn btn-primary">This is action area</a>
+                    </div> -->
+                      @yield('headerbuttons')
+                </div>
+            </div>
+        <div class=" ">
+          @yield('content')
+        </div>
+        
+
+        </div>
+        </div>
 	
     
-    <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery.form.js') }}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+ 
+    <script src="{{ URL::asset('js/jquery-2.1.1.js') }}"></script>
+    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/flot/jquery.flot.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/flot/jquery.flot.spline.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/peity/jquery.peity.min.js') }}"></script>
+    <script src="{{ URL::asset('js/inspinia.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/pace/pace.min.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+     
+
+ 
+    
+    
+    
 </body>
 </html>
