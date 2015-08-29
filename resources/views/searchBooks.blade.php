@@ -66,7 +66,7 @@ SEARCH BOOKS
 
 
 @section('content')
-<div class="container" style="width:99%" >
+<div class="container-fluid"   >
     <br>
     <div class="row">
 
@@ -76,7 +76,7 @@ SEARCH BOOKS
             <div class="form-group">
 
 
-                <div class="col-lg-3">
+                <div class="col-lg-6">
                     <input class="form-control"   oninput="searchf()" id="search" placeholder="Enter Keyword" type="text">
                 </div>
 

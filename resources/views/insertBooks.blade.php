@@ -52,6 +52,7 @@ INSERT BOOKS
 <div class="container">
  
     <div id="disableform"> 
+        <form onsubmit="return saveBook()">
     <div class=" form form-horizontal">
   <fieldset>
     <legend>Main Info </legend>
@@ -211,7 +212,7 @@ INSERT BOOKS
       </div>
         <div class="col-lg-2  " align="right" >
             <div id="booksave" >
-        <button type="button"  onclick="saveBook()" class="btn btn-success btn-block " style="padding-right:0cm">Save</button>
+        <button type="submit"    class="btn btn-success btn-block " style="padding-right:0cm">Save</button>
                 </div>
              <div id="bookupdate" hidden="true">
              <button type="button"  onclick="updateBook()" class="btn btn-success btn-block " style="padding-right:0cm" >Update</button>
@@ -235,6 +236,7 @@ INSERT BOOKS
       
   </fieldset>
 </div>
+        </form>
     </div>
    <fieldset>
     
@@ -732,7 +734,7 @@ $('#delConfirm').modal('show');
     });
  
  
- 
+ return false;
  
  }
 

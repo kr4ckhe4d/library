@@ -1,9 +1,65 @@
 @extends('app')
 
+
+
+
+@section('heading')
+
+{{$book_name->name}} <span class="label" style="color:#6D7878 ;font-weight:400">By {{$book_name->author}} </span>
+
+
+@endsection
+@section('breadcrumb')
+
+
+<li><a href="#">Books</a>
+</li>
+<li class="active">
+    <strong>SearchBooks</strong>
+</li>
+
+
+@endsection
+
+
+
+
+
+@section('sidebar')
+
+
+
+<li class="active">
+    <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Books</span> </a>
+    <ul class="nav nav-second-level">
+        <li class="active" ><a href="searchBooks">Search Books</a></li>
+        <li ><a href="insertBooks">Insert Books</a></li>
+
+    </ul>
+</li>
+
+
+
+
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
 @section('content')
-<div class="container">
+<div class="container-fluid">
 <div class="row" id="show_book">
-<legend><h2>{{$book_name->name}} <span class="label" style="color:#6D7878 ;font-weight:400">By {{$book_name->author}} </span> </h2> </legend>
+<legend><h2> </h2> </legend>
 
 <div class="col-lg-4">
     
@@ -233,10 +289,18 @@ echo $book_name->remarks;
 <div class="form-group">
 <h5 for="name" class="col-lg-3 control-label" style="font-weight:300"> </h5>
  <h5 for="name" class="col-lg-3 control-label" style="font-weight:300"> </h5>
-<div class="col-lg-10">
+<div class="col-lg-8">
 
 
 </div>
+     <div class="col-lg-2">
+
+<button class="btn btn-info btn-block"    data-toggle="modal" data-target="#add_copies"> Add Copy</button>
+</div>
+    
+    
+    
+    
     <div class="col-lg-2">
 
 <button class="btn btn-primary btn-block" onclick="edit()"> Edit</button>
@@ -264,6 +328,7 @@ echo $book_name->remarks;
     
     
     <div id="edit_book" class="row">
+        <br>
  <div class="col-lg-5" style="margin-bottom:10px"><h5 for="name" class="col-lg-3 control-label" style="font-weight:300;font-size:110%">Name </h5><input class="form-control" id="name" placeholder="Name " type="text" required value="{{$book_name->name}}" ></div> <div class="col-lg-5"><h5 for="name" class="col-lg-3 control-label" style="font-weight:300;font-size:110%">Author</h5> <input class="form-control" id="author" placeholder="Name " type="text" required value="{{$book_name->author}}" > </div>   
         <legend></legend>
 <div class="col-lg-4">
@@ -499,14 +564,14 @@ echo $book_name->remarks;
    <div class="form-group">
 <h5 for="name" class="col-lg-3 control-label" style="font-weight:300"> </h5>
 <legend>Copies </legend> 
-<div hidden>
+
+
 
 
 </div>
-</div>
 
     
-    
+    <div id="copytable">
     
     <table class="table table-striped table-hover">
     
@@ -573,7 +638,7 @@ echo $book_name->remarks;
     
     </table>
     
-    
+    </div>
     
     
     
@@ -582,6 +647,90 @@ echo $book_name->remarks;
 
 </div>
 </div>
+
+
+
+
+
+
+
+<div  class="modal fade" id="add_copies">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Add a Copy</h4>
+      </div>
+      <div class="modal-body">
+          <div class="alert alert-dismissible alert-danger" id="copyerror" hidden="true">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Error!</strong>  System encountered an issue. The most likely cause might be the Book ID already existing in the system.
+</div>
+                 <div class="alert alert-dismissible alert-success" id="copysuccess" hidden="true">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong> Success!</strong>  
+</div>
+       <form class="form-horizontal">
+          <fieldset>
+          
+              <div class="form-group">
+      <label for="copyid" class="col-lg-2 control-label">Book ID</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="copyid" placeholder=" Unique ID of the book Copy " type="Number">
+      </div>
+    
+      
+    </div>
+               
+         
+               <div class="form-group">
+      <label for="copydate" class="col-lg-2 control-label">Date</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="copydate" placeholder="    " type="text" value="<?php echo date("Y-m-d");  ?>">
+      </div>
+    
+      
+    </div>
+              
+              
+              
+              
+              
+              
+              
+              
+                   <div class="form-group">
+      <label for="copyremarks" class="col-lg-2 control-label">Remarks</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="copyremarks"></textarea>
+       
+      </div>
+    
+      
+    </div>
+                     
+          
+          </fieldset>
+          
+          </form>
+          
+          
+          
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="saveCopy()">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 
 <script>
@@ -664,7 +813,89 @@ function update(){
 }
 
 
-
+     function saveCopy(){
+     
+     
+     var book_name_id = $('#book_name_id').val();
+     var copyid= $('#copyid').val();
+     var copydate = $('#copydate').val();
+     var copyremarks= $('#copyremarks').val();
+     
+     
+     var data = "bnid="+book_name_id+"&cid="+copyid+"&copydate="+copydate+"&copyremarks="+copyremarks;
+        
+         
+         
+         
+         
+          $.ajax({
+    type: "get",
+    url: '/library/public/addCopy',
+    data: data,
+        
+    success : function(data){
+   document.getElementById("copysuccess").removeAttribute("hidden",false);
+        
+        
+        var body="";
+        if(data.length>0){
+        body+= '<table class="table table-striped table-hover"><thead><th> ID</th><th>Date added </th><th>Date updated </th><th> Reserved</th><th>Status</th><th>Remarks</th><th></th> </thead> <tbody> ';
+        
+        for(var i =0; i<data.length; i++){
+            
+            
+            var res="";
+            var stat ="";
+        
+            if (data[i].reserved == 0){
+            res = "No";
+            }
+            else{
+            
+            res ="Yes";
+            
+            }
+            
+            if (data[i].status == 0){
+            stat = "Available";
+            }
+            else{
+            
+            stat ="Not Available";
+            
+            }
+            
+            body+= '<tr> <td> '+ data[i].id + '</td><td>'+data[i].date_added+'</td><td>'+data[i].date_updated+'</td><td>'+res+'</td><td>'+stat+'</td><td>'+data[i].remarks+'</td><td><button class="btn btn-danger" onclick="deleteConfirm('+ data[i].id+')"> Remove </button></td></tr>';
+        
+        
+        
+        
+        }
+        
+            body+= '</tbody> </table>';
+       
+        
+        }
+        document.getElementById("copytable").innerHTML=body;
+        $('#add_copies').modal('hide');
+        
+        },
+	 error: function(xhr, ajaxOptions, thrownError) {
+       document.getElementById("copyerror").removeAttribute("hidden",false);
+      }	 
+    });
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+     }
 
 
 </script>
