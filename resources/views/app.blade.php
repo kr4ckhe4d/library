@@ -26,7 +26,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>Library</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
@@ -64,7 +64,7 @@
 	
 
 	<!-- Scripts -->
-	<body onload="reset()">
+	<body class="pace-done fixed-sidebar  " onload="reset()">
 
     <div id="wrapper">
 
@@ -108,7 +108,7 @@
 
         <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
-        <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+        <nav class="navbar   navbar-static-top " role="navigation" style="margin-bottom: 0">
       
             <ul class="nav navbar-top-links navbar-right">
                 <li>
@@ -144,10 +144,10 @@
                     </ol>
                 </div>
                 <div class="col-sm-4">
-                   <!-- <div class="title-action">
-                        <a href="" class="btn btn-primary">This is action area</a>
-                    </div> -->
-                      @yield('headerbuttons')
+                    <div class="title-action">
+                                @yield('headerbuttons')
+                    </div>  
+             
                 </div>
             </div>
         <div class=" ">

@@ -288,7 +288,15 @@ Route::get('/single-book', function(){
 
 
 
+Route::get('/deleteSingleBook', function(){
+    $id = Input::get('id');
 
+    DB::table('book_names')->where('id','=',$id)->delete();
+    DB::table('books')->where('book_name_id','=',$id)->delete();
+
+    return "Success";
+
+});
 
 
 //----------------------- End ---------------------------//
