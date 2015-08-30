@@ -6,17 +6,17 @@
 
 @section('heading')
 
-INSERT BOOKS
+REGISTER READERS/BORROWERS
 
 
 @endsection
 @section('breadcrumb')
 
 
-<li><a href="#">Books</a>
+<li><a href="#">Readers/Borrowers</a>
                         </li>
                         <li class="active">
-                            <strong>InsertBooks</strong>
+                            <strong>Register</strong>
                         </li>
 
 
@@ -30,7 +30,7 @@ INSERT BOOKS
 
 
 
-      <li class="active">
+      <li class=" ">
                     <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Books</span> </a>
                     <ul class="nav nav-second-level">
                         <li  ><a href="searchBooks">Search Books</a></li>
@@ -39,7 +39,14 @@ INSERT BOOKS
                     </ul>
                 </li>
 
-
+  <li class="active">
+                    <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Readers/Borrowers</span> </a>
+                    <ul class="nav nav-second-level">
+                        <li  ><a href="searchBooks">Search </a></li>
+                        <li class="active"><a href="insertBooks">Register</a></li>
+ 
+                    </ul>
+                </li>
 
 
 
@@ -57,175 +64,174 @@ INSERT BOOKS
   <fieldset>
     <legend>Main Info </legend>
     <div class="form-group">
-      <label for="name" class="col-lg-1 control-label">Name</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="name" placeholder="Name " type="text" required>
-      </div>
-    </div>
-      
-      
-      <div class="form-group">
-      <label for="author" class="col-lg-1 control-label">Author</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="author" placeholder="Author " type="text" required>
-      </div>
-    </div>
-      
-      
-      <div class="form-group">
-      <label for="cl_number" class="col-lg-1 control-label">Cl Number</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="cl_number" placeholder="Classification Number " type="text" required>
-      </div>
-    </div>
-      
-      
-      <div class="form-group">
-      <label for="edit_translate" class="col-lg-1 control-label">Editor</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="edit_translate" placeholder="Editor/Translator Name " type="text">
-      </div>
-    </div>
-      
-       <legend>Publisher Info</legend>
-       <div class="form-group">
-      <label for="publisher" class="col-lg-1 control-label">Publisher</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="publisher" placeholder="Publisher Name " type="text">
-      </div>
-    </div>
-      
-      
-      
-       <div class="form-group">
-      <label for="published_place" class="col-lg-1 control-label">Published Place</label>
+      <label for="name" class="col-lg-1 control-label">First Name</label>
       <div class="col-lg-5">
-        <input class="form-control" id="published_place" placeholder="  " type="text">
+        <input class="form-control" id="fname" placeholder="First Name " type="text" required>
       </div>
-   
-      
-      
-           
-      <label for="year" class="col-lg-1 control-label">Published Year</label>
-      <div class="col-lg-4">
-        <input class="form-control" id="year" placeholder=" Year " type="text">
+        
+        
+        
+        
+        
+        
+        
+        
+         <label for="name" class="col-lg-1 control-label">Last Name</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="lname" placeholder="Last Name " type="text" required>
       </div>
+        
+        
+        
+        
+        
     </div>
       
-      <legend>Physical Info</legend>
       
-         
-      <div class="form-group">
-          <div class="col-lg-6">
-              
-              <div class="col-lg-10">
-                  <label for="img" class="col-lg-2 control-label">Image</label>
-                  <button class="btn btn-primary" onclick="ftp()">Select an Image</button> 
-                  <img id="book_cover" height="400px" width="300px" hidden="true"  src="#">
-                  
-              </div>
-              
-                
-                  
-                
-          </div>
       
-       <div class="col-lg-5">
-        <div class="row">
-      <label for="pages" class="col-lg-2 control-label">Pages</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="pages" placeholder=" Number of Pages " type="text">
-      </div>
-    
-      </div>  <br>
-       <div class="row">
-      <label for="height" class="col-lg-2 control-label">Height (cm)</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="height" placeholder=" Height of the book in cm " type="text">
-      </div>
-          </div>
+           <div class="form-group">
           
-          <div id="debug" hidden>
-        <h2>Debug</h2>
-        <div>
-          <ul>
-            <!-- Debug lines will be added here -->
-          </ul>
-        </div>
-      </div> 
-           <div id="fileList">
-        
-        <!-- Files will be places here -->
-
+          
+      <label for="author" class="col-lg-1 control-label">Type</label>
+      <div class="col-lg-5">
+       <select class="form-control" id="type">
+          
+          <option value="LIB">Provincial Library</option>
+           <option vlaue="BC">Book Reader Club Memeber</option>
+           <option value="">Regular User </option>
+                   
+          
+          
+          </select>
       </div>
           
-           </div>
-         
-      <div class="form-group">
-          <div class="col-lg-6">
-              
-              <div class="wrapper">
+          
+          
+          
+          
+    </div>
+      
             
-      <div class="left-column">
-        <!-- D&D Markup -->
-        <div id="drag-and-drop-zone" class="uploader">
-          <div>Drag &amp; Drop Images Here</div>
-          <div class="or">-or-</div>
-          <div class="browser">
-            <label>
-              <span>Click to open the file Browser</span>
-              <input type="file" name="files[]" multiple="multiple" title='Click to add Files'>
-            </label>
-          </div>
-        </div>
-        <!-- /D&D Markup -->
-      </div>
-        
-      
- 
-</div>
-     
-       
-    </div>
-      
-          </div>
-      
-      
-       <legend>Additional Info</legend>
-     
-      
-      
-        <div class="form-group">
-      <label for="series" class="col-lg-1 control-label">Title Series</label>
+      <div class="form-group">
+      <label for="edit_translate" class="col-lg-1 control-label">NIC</label>
       <div class="col-lg-5">
-        <input class="form-control" id="series" placeholder=" Name of the  Series  " type="text">
+        <input class="form-control" id="nic" placeholder="NIC Number " type="text">
       </div>
-    
-      <label for="series_num" class="col-lg-1 control-label"> Series Number</label>
-      <div class="col-lg-4">
-        <input class="form-control" id="series_num" placeholder=" Series Number" type="text">
-      </div>
+          
+               <label for="edit_translate" class="col-lg-1 control-label">Ref. Number</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="mp" placeholder="Reference Number" type="text">
+      </div> 
+          
+          
+          
     </div>
+      
+      
+          <legend>Contact Info </legend>
+      
+      
+      <div class="form-group">
+          
+          
+      <label for="author" class="col-lg-1 control-label">Address Line 1</label>
+      <div class="col-lg-11">
+        <input class="form-control" id="add1" placeholder="Number and Street" type="text" required>
+      </div>
+          
+          
+          
+          
+          
+    </div>
+      
+      
+      <div class="form-group">
+      <label for="cl_number" class="col-lg-1 control-label">Address Line 2</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="cl_add2" placeholder="Town and city" type="text" required>
+      </div>
+          
+          
+             <label for="cl_number" class="col-lg-1 control-label">Address Line 3</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="cl_add3" placeholder="District" type="text" required>
+      </div>
+          
+          
+          
+          
+          
+          
+    </div>
+      
+      
+      <div class="form-group">
+      <label for="edit_translate" class="col-lg-1 control-label">Land Phone</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="lp" placeholder="Land Phone Number " type="text">
+      </div>
+          
+               <label for="edit_translate" class="col-lg-1 control-label">Mobile Phone</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="mp" placeholder="Mobile Phone Number" type="text">
+      </div> 
+          
+          
+          
+    </div>
+      
      
-        <div class="form-group">
-      <label for="isbn" class="col-lg-1 control-label">ISBN</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="isbn" placeholder=" ISBN number" type="text">
+      
+      
+      
+      
+            
+      <div class="form-group">
+      <label for="edit_translate" class="col-lg-1 control-label">Email</label>
+      <div class="col-lg-5">
+        <input class="form-control" id="email" placeholder=" Email Address " type="email">
       </div>
+          
+ 
+          
     </div>
-       
       
+      <legend>Other Info</legend>
       
-      
-      
-      
-    <div class="form-group">
-      <label for="remarks" class="col-lg-1 control-label">Remarks</label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="remarks"></textarea>
-        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+            
+      <div class="form-group">
+      <label for="edit_translate" class="col-lg-1 control-label">Status</label>
+      <div class="col-lg-5">
+       <select class="form-control" id="status">
+          
+          
+          <option value="0">Memebrship Disabled</option>
+             <option value="1">Memebrship Enabled</option>
+          
+          
+          
+          
+          
+          
+          
+          </select>
       </div>
+          
+          <label for="edit_translate" class="col-lg-1 control-label">Remarks</label>
+      <div class="col-lg-5">
+      <textarea class="form-control" id="remarks"></textarea>
+      </div>
+               
+          
+          
     </div>
+      
+      
+      
+    
+      
+      
    
         <div class="alert alert-dismissible alert-success" id="booksuccessupdate" hidden="true" >
    
@@ -845,94 +851,6 @@ $('#add_copies').modal('show');
 
     
       
-      //-- Some functions to work with our UI
-      function add_log(message)
-      {
-        var template = '<li>[' + new Date().getTime() + '] - ' + message + '</li>';
-        
-        $('#debug').find('ul').prepend(template);
-      }
-      
-      function add_file(id, file)
-      {
-        var template = '' +
-          '<div class="file" id="uploadFile' + id + '">' +
-            '<div class="info">' +
-              '#1 - <span class="filename" title="Size: ' + file.size + 'bytes - Mimetype: ' + file.type + '">' + file.name + '</span><br /><small>Status: <span class="status">Waiting</span></small>' +
-            '</div>' +
-            '<div class="bar">' +
-              '<div class="progress" style="width:0%"></div>' +
-            '</div>' +
-          '</div>';
-          
-    $('#fileList').prepend(template);
-      }
-      
-      function update_file_status(id, status, message)
-      {
-        $('#uploadFile' + id).find('span.status').html(message).addClass(status);
-      }
-      
-      function update_file_progress(id, percent)
-      {
-        $('#uploadFile' + id).find('div.progress').width(percent);
-      }
-      
-      // Upload Plugin itself
-      $('#drag-and-drop-zone').dmUploader({
-        url: "{{ URL::asset('/src/upload.php') }}",
-        dataType: 'json',
-        allowedTypes: 'image/*',
-        /*extFilter: 'jpg;png;gif',*/
-        onInit: function(){
-          add_log('Penguin initialized :)');
-        },
-        onBeforeUpload: function(id){
-          add_log('Starting the upload of #' + id);
-          
-          update_file_status(id, 'uploading', 'Uploading...');
-        },
-        onNewFile: function(id, file){
-          add_log('New file added to queue #' + id);
-          
-          add_file(id, file);
-        },
-        onComplete: function(){
-          add_log('All pending tranfers finished');
-        },
-        onUploadProgress: function(id, percent){
-          var percentStr = percent + '%';
-
-          update_file_progress(id, percentStr);
-        },
-        onUploadSuccess: function(id, data){
-          add_log('Upload of file #' + id + ' completed');
-          
-          add_log('Server Response for file #' + id + ': ' + JSON.stringify(data));
-          
-          update_file_status(id, 'success', 'Upload Complete');
-          
-          update_file_progress(id, '100%');
-        },
-        onUploadError: function(id, message){
-          add_log('Failed to Upload file #' + id + ': ' + message);
-          
-          update_file_status(id, 'error', message);
-        },
-        onFileTypeError: function(file){
-          add_log('File \'' + file.name + '\' cannot be added: must be an image');
-          
-        },
-        onFileSizeError: function(file){
-          add_log('File \'' + file.name + '\' cannot be added: size excess limit');
-        },
-        /*onFileExtError: function(file){
-          $.danidemo.addLog('#demo-debug', 'error', 'File \'' + file.name + '\' has a Not Allowed Extension');
-        },*/
-        onFallbackMode: function(message){
-          alert('Browser not supported(do something else here!): ' + message);
-        }
-      });
      
 </script>
 

@@ -317,6 +317,15 @@ Route::get('/single-copy', function(){
 
 
 
+Route::get('/regBorrowers', function(){
+
+
+
+    return view('regBorrowers');
+
+
+});
+
 
 
 
