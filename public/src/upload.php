@@ -1,5 +1,6 @@
 <?php
+        
+        echo json_encode(array('status' => 'ok'));
 
-echo json_encode(array('status' => 'ok'));
 
 ?>

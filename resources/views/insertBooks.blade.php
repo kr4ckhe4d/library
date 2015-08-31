@@ -116,19 +116,7 @@ INSERT BOOKS
       
          
       <div class="form-group">
-          <div class="col-lg-6">
-              
-              <div class="col-lg-10">
-                  <label for="img" class="col-lg-2 control-label">Image</label>
-                  <button class="btn btn-primary" onclick="ftp()">Select an Image</button> 
-                  <img id="book_cover" height="400px" width="300px" hidden="true"  src="#">
-                  
-              </div>
-              
-                
-                  
-                
-          </div>
+         
       
        <div class="col-lg-5">
         <div class="row">

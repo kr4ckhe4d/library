@@ -287,7 +287,6 @@ Route::get('/single-book', function(){
 });
 
 
-
 Route::get('/deleteSingleBook', function(){
     $id = Input::get('id');
 
